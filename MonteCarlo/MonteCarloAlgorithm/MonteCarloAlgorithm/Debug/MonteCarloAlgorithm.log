@@ -1,0 +1,3 @@
+﻿  MonteCarloAlgorithm.cpp
+C:\Users\lenovo\Desktop\MonteCarloAlgorithm\MonteCarloAlgorithm\MonteCarloAlgorithm.cpp(23,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MonteCarloAlgorithm.vcxproj -> C:\Users\lenovo\Desktop\MonteCarloAlgorithm\Debug\MonteCarloAlgorithm.exe

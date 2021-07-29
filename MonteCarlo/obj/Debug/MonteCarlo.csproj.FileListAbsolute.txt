@@ -1,0 +1,15 @@
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\bin\Debug\MonteCarlo.exe.config
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\bin\Debug\MonteCarlo.exe
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\bin\Debug\MonteCarlo.pdb
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MainWindow.g.cs
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\App.g.cs
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo_MarkupCompile.cache
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo_MarkupCompile.lref
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MainWindow.baml
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.g.resources
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.Properties.Resources.resources
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.exe
+C:\Users\lenovo\Desktop\termodynamika\montecarlo\MonteCarlo\MonteCarlo\obj\Debug\MonteCarlo.pdb

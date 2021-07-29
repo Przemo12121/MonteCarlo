@@ -1,0 +1,60 @@
+﻿<Window x:Class="MonteCarlo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:self="clr-namespace:MonteCarlo"
+        mc:Ignorable="d"
+        Title="MonteCarloSimulation by Przemysław Malecki and Ewelina Cybula" Height="500" Width="700" MaxHeight="500" MinHeight="500" MinWidth="700" MaxWidth="700">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="self:MonteCarloCommands.GenerateFirstMap" CanExecute="LengthNonZero_CanExecute" Executed="GenerateFirstMap_Executed"/>
+        <CommandBinding Command="self:MonteCarloCommands.BeginSimulation" CanExecute="MapLoaded_CanExecute" Executed="BeginSimulation_Executed"/>
+        <CommandBinding Command="self:MonteCarloCommands.SaveData" CanExecute="SaveData_CanExecute" Executed="SaveData_Executed"/>
+        <CommandBinding Command="self:MonteCarloCommands.RestartSimulation" CanExecute="RestartSimulation_CanExecute" Executed="RestartSimulation_Executed"/>
+    </Window.CommandBindings>
+
+    <Grid Background="DarkGray">
+
+        <Grid Name="mapGrid" Background="LightGray" Height="450" Width="450" HorizontalAlignment="Right" Margin="0,10,9.6,10.4" KeyDown="mapGrid_KeyDown">
+
+        </Grid>
+
+        <Canvas Name="controls" Width="190" Background="LightGray" HorizontalAlignment="Left" Margin="20,53,0,10.4">
+            <TextBox Name="input_temperature" Height="20" Width="50"  PreviewTextInput="Doubles_PreviewTextInput" Canvas.Left="130" Canvas.Top="17"/>
+            <TextBox Name="input_length" Height="20" Width="50" PreviewTextInput="IntegralsOnly_PreviewTextInput" Canvas.Left="130" Canvas.Top="41"/>
+            <TextBox Name="input_mcs" Height="20" Width="50" PreviewTextInput="IntegralsOnly_PreviewTextInput" Canvas.Left="130" Canvas.Top="67"/>
+
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="19" Canvas.Top="17">Temperatura [K]</TextBlock>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="31" Canvas.Top="42">Wymiar L</TextBlock>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="31" Canvas.Top="67">Czas [MCS]</TextBlock>
+
+            <TextBox Name="input_probability" Height="20" Width="50"  PreviewTextInput="Doubles_PreviewTextInput" Canvas.Left="19" Canvas.Top="207"/>
+            <TextBlock Canvas.Left="6" Canvas.Top="177">Prawdopodobienstwo spinu "up"</TextBlock>
+            <TextBlock Canvas.Left="31" Canvas.Top="156" PreviewTextInput="Doubles_PreviewTextInput">Ustawienie poczatkowe</TextBlock>
+
+            <Button Name="genMapBtn" Height="43" Width="84" Canvas.Top="193" Canvas.Left="85" Command="self:MonteCarloCommands.GenerateFirstMap" >
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Generuj mapę startową</TextBlock>
+            </Button>
+
+            <Button  Height="44" Width="84" Canvas.Top="282" Canvas.Left="58" Command="self:MonteCarloCommands.BeginSimulation" >
+                <TextBlock Name="simRunTB" TextWrapping="Wrap" TextAlignment="Center">Rozpocznij symulacje</TextBlock>
+            </Button>
+            <TextBox Name="input_stepcounter" Height="20" Width="50" PreviewTextInput="IntegralsOnly_PreviewTextInput" Canvas.Left="130" Canvas.Top="91"/>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="6" Canvas.Top="91">Co ile zliczać mape</TextBlock>
+            <Button Height="27" Width="84" Canvas.Top="353" Canvas.Left="58" Command="self:MonteCarloCommands.RestartSimulation" >
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Restart danych</TextBlock>
+            </Button>
+
+        </Canvas>
+
+        <Canvas Margin="0,0,0.2,417.4">
+            <ComboBox Name="MapUpdatesCB" Height="20" SelectionChanged="MapUpdatesCB_SelectionChanged" HorizontalAlignment="Right" Width="100" Canvas.Left="108" Canvas.Top="23"/>
+            <TextBlock Canvas.Left="108" Canvas.Top="7">Pokazany krok MCS:</TextBlock>
+            <Button  Command="self:MonteCarloCommands.SaveData"  Height="30" Width="82" Canvas.Left="21" Canvas.Top="13">
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Zapisz dane</TextBlock>
+            </Button>
+        </Canvas>
+
+    </Grid>
+</Window>
