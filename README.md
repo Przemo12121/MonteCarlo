@@ -12,8 +12,8 @@ SUMMARY:
 
 STUFF USED IN PROJECT:
 
--> WPF and C# - simple window with default styles, buttons, text inputs with preview input validations, starting other programs (c++ code) with input arguments and capturing output data from those programs, basic interaction commands, the code was done in more functional programming paradigm
--> C++ - functional programming paradigm, implemented monte carlo algorithm, reading input arguments and printing calculated results for later capture
+- WPF and C# - simple window with default styles, buttons, text inputs with preview input validations, starting other programs (c++ code) with input arguments and capturing output data from those programs, basic interaction commands, the code was done in more functional programming paradigm
+- C++ - functional programming paradigm, implemented monte carlo algorithm, reading input arguments and printing calculated results for later capture
 
 OVERALL WORK:
 
