@@ -2,9 +2,8 @@ Monte Carlo Simulation
 
 Authors:
 
-Przemysław Małecki (entire WPF part of the project)
-
-Ewelina Cybula (entire C++ code)
+- Przemysław Małecki (entire WPF part of the project)
+- Ewelina Cybula (entire C++ code)
 
 
 SUMMARY:
