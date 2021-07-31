@@ -25,34 +25,34 @@
             <TextBox Name="input_length" Height="20" Width="50" PreviewTextInput="IntegralsOnly_PreviewTextInput" Canvas.Left="130" Canvas.Top="41"/>
             <TextBox Name="input_mcs" Height="20" Width="50" PreviewTextInput="IntegralsOnly_PreviewTextInput" Canvas.Left="130" Canvas.Top="67"/>
 
-            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="19" Canvas.Top="17">Temperatura [K]</TextBlock>
-            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="31" Canvas.Top="42">Wymiar L</TextBlock>
-            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="31" Canvas.Top="67">Czas [MCS]</TextBlock>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="19" Canvas.Top="17">Temperature [K]</TextBlock>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="31" Canvas.Top="42">Dimension L</TextBlock>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="31" Canvas.Top="67">Duration [MCS]</TextBlock>
 
             <TextBox Name="input_probability" Height="20" Width="50"  PreviewTextInput="Doubles_PreviewTextInput" Canvas.Left="19" Canvas.Top="207"/>
-            <TextBlock Canvas.Left="6" Canvas.Top="177">Prawdopodobienstwo spinu "up"</TextBlock>
-            <TextBlock Canvas.Left="31" Canvas.Top="156" PreviewTextInput="Doubles_PreviewTextInput">Ustawienie poczatkowe</TextBlock>
+            <TextBlock Canvas.Left="6" Canvas.Top="177">Spin up probability</TextBlock>
+            <TextBlock Canvas.Left="31" Canvas.Top="156" PreviewTextInput="Doubles_PreviewTextInput">Initial map setup</TextBlock>
 
             <Button Name="genMapBtn" Height="43" Width="84" Canvas.Top="193" Canvas.Left="85" Command="self:MonteCarloCommands.GenerateFirstMap" >
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Generuj mapę startową</TextBlock>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Generate initial map</TextBlock>
             </Button>
 
             <Button  Height="44" Width="84" Canvas.Top="282" Canvas.Left="58" Command="self:MonteCarloCommands.BeginSimulation" >
-                <TextBlock Name="simRunTB" TextWrapping="Wrap" TextAlignment="Center">Rozpocznij symulacje</TextBlock>
+                <TextBlock Name="simRunTB" TextWrapping="Wrap" TextAlignment="Center">Begin simulation</TextBlock>
             </Button>
             <TextBox Name="input_stepcounter" Height="20" Width="50" PreviewTextInput="IntegralsOnly_PreviewTextInput" Canvas.Left="130" Canvas.Top="91"/>
-            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="6" Canvas.Top="91">Co ile zliczać mape</TextBlock>
+            <TextBlock Height="20" VerticalAlignment="Bottom" Canvas.Left="6" Canvas.Top="91">Data capturin period</TextBlock>
             <Button Height="27" Width="84" Canvas.Top="353" Canvas.Left="58" Command="self:MonteCarloCommands.RestartSimulation" >
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Restart danych</TextBlock>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Refresh</TextBlock>
             </Button>
 
         </Canvas>
 
         <Canvas Margin="0,0,0.2,417.4">
             <ComboBox Name="MapUpdatesCB" Height="20" SelectionChanged="MapUpdatesCB_SelectionChanged" HorizontalAlignment="Right" Width="100" Canvas.Left="108" Canvas.Top="23"/>
-            <TextBlock Canvas.Left="108" Canvas.Top="7">Pokazany krok MCS:</TextBlock>
+            <TextBlock Canvas.Left="108" Canvas.Top="7">shown MCS:</TextBlock>
             <Button  Command="self:MonteCarloCommands.SaveData"  Height="30" Width="82" Canvas.Left="21" Canvas.Top="13">
-                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Zapisz dane</TextBlock>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center">Save data</TextBlock>
             </Button>
         </Canvas>
 

@@ -90,7 +90,17 @@ namespace MonteCarlo
             mcs.StartInfo.Arguments = arguments;
             char help = 'n';
 
-            mcs.OutputDataReceived += (sender, arg) => { if (counter == -1) { mcs.CancelOutputRead(); } else { DataReceiverHelp(arg.Data, ref counter, ref help); } };
+            mcs.OutputDataReceived += (sender, arg) => {
+                if (counter == -1) 
+                { 
+                    mcs.CancelOutputRead(); 
+                } 
+                else 
+                { 
+                    DataReceiverHelp(arg.Data, ref counter, ref help); 
+                } 
+            };
+
             mcs.Start();
             mcs.BeginOutputReadLine();
             mcs.WaitForExit();
@@ -362,7 +372,7 @@ namespace MonteCarlo
 
             sim_being_run = true;
             current_mcs += Int32.Parse(input_mcs.Text);
-            simRunTB.Text = "Kontynuuj symulacje";
+            simRunTB.Text = "Continue simulation";
 
             input_probability.IsEnabled = false;
             input_temperature.IsEnabled = false;
@@ -468,7 +478,7 @@ namespace MonteCarlo
             MapUpdatesCB.Items.Clear();
             clear_assistant = false;
             current_mcs = 0;
-            simRunTB.Text = "Rozpocznij symulacje";
+            simRunTB.Text = "Begin simulation";
         }
         private void RestartSimulation_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -504,11 +514,11 @@ namespace MonteCarlo
         public int L;
         public string[] map;
         public int mcs;
-        public MapChangeStep(string[] mapa, int krok, int dlugosc)
+        public MapChangeStep(string[] mapa, int step, int length)
         {
             this.map = (string[])mapa.Clone();
-            this.mcs = krok;
-            this.L = dlugosc;
+            this.mcs = step;
+            this.L = length;
         }
     }
 

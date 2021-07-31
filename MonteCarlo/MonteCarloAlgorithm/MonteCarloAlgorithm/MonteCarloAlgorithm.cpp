@@ -7,12 +7,13 @@
 
 using namespace std;
 
+// translates '0' (spin down) to value of -1, and '1' (spin up) to value of 1 
 int f(char c) {
     if (c == '1')
     {
         return 1;
     }
-    else {
+    else { //only '0' possible
         return -1;
     }
 }
@@ -22,17 +23,18 @@ int main(int argc, char** argv)
     time_t t;
     srand(time(&t));
     int counter = 0;
-    int L = std::stoi(argv[2]);     //rozmiar tablicy spinów
-    double T = std::stod(argv[1]);  // temperatura
-    int mcs = std::stoi(argv[argc - 2]);    //ilość kroków mcs
-    int mcsh = std::stoi(argv[argc - 1]);   //zmienna pomocnicza do zczytywania mapy
+    int L = std::stoi(argv[2]);     //size of array of spins
+    double T = std::stod(argv[1]);  // temperature
+    int mcs = std::stoi(argv[argc - 2]);    //number of duration in mcs
+    int mcsh = std::stoi(argv[argc - 1]);   //variable helping in capturing intermediate step data
 
 
-       int magnetyzacja;
+       int magnetism;
 
-        //uwaga! ze wzgledów technicznych, kolumny tablicy spinów są na indeksach od i = 3 do i = L+3
-        // natomiast indeksy wierszów już normalnie są od j = 0 do j = L
-          //Ewoluowaæ
+       //because of technical reasons, columns of the array are placed at indexes between 3 and L+3
+       //though rows are naturally between 0 and L
+          
+       //evolving map of domains
         double deltaE;
         int i;
         int j;
@@ -40,10 +42,10 @@ int main(int argc, char** argv)
         for (int k = 0; k < mcs;k++,counter++) { //kroki MCS
             for (int s = 0; s < L * L; s++)
             {
-                //1. Losuje spin dla losowego Sij
+                //1. Draw random spin 
                 i = (rand() % L) + 3;   //+0
                 j = (rand() % L);     //+0
-                //rozbite przypadki na sytuacje, w ktorych program bada spiny na krawedziach
+                //distinguished cases when program calculates spin of domain at the edge
                 if (i == 3 || i == LL - 1)
                 {
                     if (i == 3)
@@ -51,7 +53,8 @@ int main(int argc, char** argv)
                         if (j == 0 || j == L - 1)
                         {
                             if (j == 0)
-                            {                   //funkcja f zamienia znak 1 na wartosc 1 oraz znak 0 na wartosc -1
+                            {
+                                //f function translates '0' (spin down) to value of -1, and '1' (spin up) to value of 1 
                                 deltaE = 2 * (f(argv[i][j])) * (f(argv[i + 1][j]) + f(argv[i][j + 1]));
                             }
                             else if (j == L - 1)
@@ -127,7 +130,7 @@ int main(int argc, char** argv)
                     }
                 }
             }
-            //tutaj jest zawarte zwracanie map przejściowych do interfejsu
+            //intermediate step data are send back to WPF
             if (mcsh > 0 && counter > 0 && counter%mcsh==0 && counter < mcs) {
                 cout << 'c' << endl;
                 for (int i = 3; i < LL; i++) {
@@ -135,18 +138,18 @@ int main(int argc, char** argv)
                 }
                 cout << counter << endl;
             }
-            //oblicanie magnetyzacji
-            magnetyzacja = 0;
+            //calculating magnetism
+            magnetism = 0;
             for (int i = 3; i < LL; i++) {
                 for (int j = 0; j < L; j++) {
-                    magnetyzacja += f(argv[i][j]);
+                    magnetism += f(argv[i][j]);
                 }
             }
-            //wysylanie magnetyzacji do interfejsu, zbierajacego dane do zapisania do plikow
+            //sending magnetism to WPF
             cout << 'm' << endl;
-            cout << (double)magnetyzacja / L / L << endl;
+            cout << (double)magnetism / L / L << endl;
         }
-        //wysylanie koncowej mapy spinów
+        //sending final map
         cout << 'k' << endl;
         for (int i = 3; i < LL; i++) {
             cout << argv[i] << endl;
